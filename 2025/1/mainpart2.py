@@ -1,24 +1,31 @@
 import math
 
+class Solver:
+
+    def __init__(self, pos):
+        self.pos = pos
+        self.prevPos = pos
+    
+    def get_between_zeros(self, line):
+        dirChar = line[:1]
+        nums = int(line[1:])
+
+        if dirChar == "L":
+            self.pos -= nums
+            zeros = math.floor((abs(self.prevPos - self.pos) + ((100 - (self.prevPos % 100)) % 100)) / 100)
+        else:
+            self.pos += nums
+            zeros = math.floor((abs(self.prevPos - self.pos) + ((100 + (self.prevPos % 100)) % 100)) / 100)
+        self.prevPos = self.pos
+        return zeros
+    
 def main():
-    pos = 50
-    prevPos = 50
     zeroCount = 0
+    solver = Solver(50)
     with open("./2025/1/input.txt") as f:
         for line in f:
-            dirChar = line[:1]
-            nums = int(line[1:])
+            zeroCount += solver.get_between_zeros(line)
 
-            if dirChar == "L":
-                pos -= nums
-                zeroCount += math.floor((abs(prevPos - pos) + (100 - (prevPos % 100))) / 100)
-                pos = (pos % 100 + 100) % 100
-            else:
-                pos += nums
-                zeroCount += math.floor((abs(prevPos - pos) - (prevPos % 100)) / 100)
-                pos = pos % 100
-
-            prevPos = pos
     print(zeroCount)
 
 main()
