@@ -1,8 +1,9 @@
+import re
+
 class Solver:
     def solve(self, ranges):
         total = 0
         for i in ranges:
-            print(ranges)
             nums = i.split("-")
             large = int(nums[1])
             small = int(nums[0])
@@ -11,18 +12,11 @@ class Solver:
                 for j in range(1, (len(s) // 2) + 1):
                     if self.checkPattern(s[:j], s):
                         total += k
+                        break
         return total
     
     def checkPattern(self, pattern, string):
-        patternLength = len(pattern)
-        stringLength =  len(string)
-        if stringLength % patternLength != 0:
-            return False
-        for i in range(patternLength, (stringLength // patternLength)):
-            start = i * patternLength
-            if string[start:(start + patternLength)] != pattern:
-                return False
-        return True
+        return re.fullmatch(f"({pattern})+", string) is not None
 
 def main():
     solver = Solver()
