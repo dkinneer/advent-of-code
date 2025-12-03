@@ -1,4 +1,4 @@
-from main3 import Solver
+from day3_part1 import Solver
 
 def test_example():
     solver = Solver()
