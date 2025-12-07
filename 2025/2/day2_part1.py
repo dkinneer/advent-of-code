@@ -1,6 +1,6 @@
 def main():
     total = 0
-    with open("./2025/2/input.txt") as f:
+    with open("./2025/inputs/input2.txt") as f:
         line = f.readline()
     ranges = line.split(",")
     for i in ranges:

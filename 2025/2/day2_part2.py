@@ -20,7 +20,7 @@ class Solver:
 
 def main():
     solver = Solver()
-    with open("./2025/2/input.txt") as f:
+    with open("./2025/inputs/input2.txt") as f:
         line = f.readline()
     ranges = line.split(",")
     print(solver.solve(ranges))

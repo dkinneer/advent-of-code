@@ -3,7 +3,7 @@ def main():
     grid = []
     final_total = 0
     tp_available = True
-    with open("./2025/4/input.txt") as f:
+    with open("./2025/inputs/input4.txt") as f:
         for line in f:
             elements = line.strip()
             grid.append(list(elements))

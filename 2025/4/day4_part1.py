@@ -2,7 +2,7 @@ def main():
     directions = [[0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]]
     grid = []
     total = 0
-    with open("./2025/4/input.txt") as f:
+    with open("./2025/inputs/input4.txt") as f:
         for line in f:
             elements = line.strip()
             grid.append(elements)

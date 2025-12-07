@@ -14,9 +14,8 @@ class Solver:
 def main():
     solver = Solver()
     total = 0
-    with open("./2025/3/input.txt") as f:
+    with open("./2025/inputs/input3.txt") as f:
         for line in f:
-            print(line)
             total += solver.solve(line.strip())
     print(total)
 
